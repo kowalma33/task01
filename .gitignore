@@ -1,33 +1,21 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+node_modules
+*.log
+.nyc_output
+test-results.xml
+coverage
+*.bak
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+*bundle.js
 
-### IntelliJ IDEA ###
+# TernJS port file
+.tern-port
+
+# MACOS files
+.DS_Store
+
+dist
+target
+
+# intellij idea
 .idea
-*.iws
 *.iml
-*.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
-.vscode/

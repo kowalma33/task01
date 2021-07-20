@@ -11,10 +11,7 @@ import java.util.Optional;
 
 @Repository
 public interface ExampleRepository extends JpaRepository<ExampleMapping, Long>, JpaSpecificationExecutor<ExampleMapping> {
-
     Optional <ExampleMapping> findByExampleId(String exampleId);
-
     void deleteByExampleId(String exampleId);
-
 
 }

@@ -4,6 +4,7 @@ import com.example.task01.model.Example;
 import com.example.task01.service.ExampleService;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
+import com.github.springtestdbunit.annotation.DatabaseTearDown;
 import com.github.springtestdbunit.annotation.ExpectedDatabase;
 import com.github.springtestdbunit.assertion.DatabaseAssertionMode;
 import org.junit.jupiter.api.Test;
@@ -11,18 +12,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.test.context.TestExecutionListeners;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 @TestExecutionListeners(
         listeners = {DbUnitTestExecutionListener.class },
         mergeMode = TestExecutionListeners.MergeMode.MERGE_WITH_DEFAULTS
 )
-//@DatabaseTearDown("classpath:com/opuscapita/businessnetwork/masterdata/clearAllTables.xml")
+@DatabaseTearDown("classpath:com/example/task01/empty.xml")
 @DatabaseSetup("data.xml")
 @EnableJpaAuditing
 class Task01ApplicationTests {
@@ -33,7 +31,7 @@ class Task01ApplicationTests {
     @Test
     void getAll() {
         List<Example> allExamples = service.getAll();
-        assertEquals(2, allExamples.size()); //porownac wszystkie
+        assertEquals(2, allExamples.size());
     }
 
     @Test

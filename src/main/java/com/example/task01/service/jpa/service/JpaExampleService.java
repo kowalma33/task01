@@ -8,7 +8,6 @@ import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
@@ -39,7 +38,7 @@ public class JpaExampleService implements ExampleService {
 
     public Example update(String exampleId, Example example) {
         Optional<ExampleMapping> em = exampleRepository.findByExampleId(exampleId);
-        BeanUtils.copyProperties(example, em.orElseThrow(() -> new ObjectNotFoundException("asdfasdf", exampleId)), "id", "exampleId");
+        BeanUtils.copyProperties(example, em.orElseThrow(() -> new ObjectNotFoundException("No Example object to be found", exampleId)), "id", "exampleId");
         return toModel(exampleRepository.saveAndFlush(em.get()));
     }
 

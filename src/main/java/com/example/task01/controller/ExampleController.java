@@ -46,7 +46,6 @@ public class ExampleController {
 
     @DeleteMapping("/example/{exampleId}")
     private void deleteById(@PathVariable("exampleId") String exampleId) {
-
         service.deleteById(exampleId);
     }
 }

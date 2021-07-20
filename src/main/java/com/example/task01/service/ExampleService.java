@@ -1,7 +1,6 @@
 package com.example.task01.service;
 
 import com.example.task01.model.Example;
-
 import java.util.List;
 import java.util.Optional;
 
